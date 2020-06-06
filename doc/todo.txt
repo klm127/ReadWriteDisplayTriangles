@@ -1,0 +1,28 @@
+toDo
+
+Delete fields from UI that I dont need now with the better Save/Load interface
+
+Implement spinner bars for integer values 
+
+Add a name to the files/recordTable
+
+Add a Color field to the file saves and the triangles
+
+Consider a border Pane for the triangle pane in the top area for a few buttons.
+Add an actionListener to the TrianglePane? maybe for mouseovers that would display a triangles name when you mouse over it
+	Could also implement a way to drag triangles and save them in their new Coordinates
+	
+	How about - Drag Triangles around and spin the mouse wheel to rotate them 
+
+
+implement drop down file selector / text field
+
+
+move record filling from fileGenerator to recordTable
+
+Transforms
+
+Colors
+
+//
+

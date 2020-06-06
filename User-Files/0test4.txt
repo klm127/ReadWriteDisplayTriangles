@@ -1,0 +1,5 @@
+Test - up is green, left is red, down is blue, right is gray
+0;200.0;200.0;u;25.0;123.0;0x80b380ff;midgreen
+1;200.0;200.0;l;25.0;123.0;0x990000ff;darkred6
+2;200.0;200.0;d;25.0;123.0;0x001a80ff;darkblue
+3;200.0;200.0;r;25.0;123.0;0x4d4d4dff;midgray

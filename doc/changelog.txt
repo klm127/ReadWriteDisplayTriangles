@@ -1,0 +1,157 @@
+	3/14/2020 
+	worked From about 5:00 to now, 6:42 pm
+	
+	added keycode commands including +/- to bring triangles forwards and backwards.
+	Works like a charm
+	Actually possible to make some real art now!
+	Next up is rotate. Why do I feel like this will be hard?
+	--
+
+	3/13/2020 10:58 am
+KARL MILLER
+	
+	Started at 10:00 am
+	
+	Took a break from 3 or so to 6 or so
+	
+	11:00 pm went to walmart. Everyone thinks civilization is ending
+	
+	12:30 return
+	
+	3:15 finish 
+	
+	Finally got it to fully save and load properly, keeping move changes made. Working late meant some stupid mistakes and a lot of compiles. Was tricky figuring out the JavaFX coordinate system. Objects have layouts and translates and there's a lot of relative stuff going on. I found the relocate(x,y) method that Nodes have to be the best for my purposes here, however I have to call it when I construct the tris so they appear in the same place. Creating translates and trying to calculate them back for records wasn't working. Neither did anything to do with getLocalX, getLocalY etc. These use a different coordinate system that puts them in the center of the pane, rather than using the top left as 0,0.
+	
+	Long term I may need to implement the proper coordinate system in order to fully take advantage of scaling and such. 
+	
+	I think if I can code not tired for a while, I could really make a banging UI and add a ton of features with what I've got going already.
+	
+	First ones should be key commands for raise triangle( will move it up/down the recordTable ) and lower Triangle, which will map to the + and - key
+	Next will be a ToolTips pane on the right for hints
+	Rotate triangles with page up and page down 
+	
+	
+	
+
+	3/12/2020 11:20 am
+KARL MILLER	
+	updated flow chart
+	made Triangles extend Polygons rather than be seperate objects
+	
+	Records could actually extend Triangles and could cut down on the amount of code a lot, but at this point I don't want to delete what's already working. I'll design things better on the next app but for now, I'm going to work with the features I've already implemented. Since I've mapped everything out on a FreeMind FlowChart, I think I can navigate the code I've already written.
+	
+	Added mouse events to TrianglePane which extends Mouse handling and key Events to TrianglePaneUI. I figure I will use Key events for hotkeys as well so makes sense to be in the overallUI.
+	
+	Took break at 3:24 PM
+	
+	6:04 return
+	
+	3:05 am finished with this part
+	
+
+	
+	
+	
+KARL MILLER
+
+	- planning structure supportive of TrianglePane editing
+	
+	1:43 pm
+	
+	- added TriangleUI, TriangleTopMenu and edited accordingly
+	
+	break 1:51 pm
+	
+	6:00 - 11:00 pm
+	
+	- event handling implementation. Difficult. Was trying to extend the interface and creating instances in new classes rather than simply implementing in existing ones 
+	
+	trianglePanes can now produce records 
+	
+	found one I thought was pretty - verts.txt
+	
+	More debug codes
+	
+	Need to make Triangles extend Polygons so they can return the right data after being edited
+	
+	Should get rid of the damn file name text box and make it a label 
+	
+	You should be able to click to highlight a triangle 
+	
+	Making recordGenerator static may stop -Xlint warnings, guessing.
+
+
+	3/11/2020 15:00 - 17:40
+KARL MILLER
+15:00 - 17:40 making a mind map for the program and planning implementation of Colors
+17:40-18:31 - added the colorPicker UI controls 
+18:31 took a break for sunset
+	
+19:45 - continued implementing colors, updating flow chart 
+	implemented internal names for the table read from the top of the file - this can be expanded into more properties later , an internal name is redundant on its' own (could use filename)
+	
+	finished colors
+	
+	updated flow chart to reflect changes and began planning implementing UI for trianglePanes
+	end 22:21
+
+
+	3/10/2020 22:00 - 03:02
+KARL MILLER 
+noted that for text files, each record seems to be about a 100 bytes as a string right now. 10,000 triangles produced a 1,011kb txt file. Produced lag resizing trianglepane. 5,000 triangles produced no slow down on my computer. 
+
+implemented close-All and close-Not-Last buttons using an triangleStageArrayList
+
+implemented exception handling for loading files and an Alert window 
+
+implemented a sub directory for files program creates
+
+implemented a constants class 
+
+tried implementing a drop down menu for future file selection but got a little tired and stumped
+implemented a fileChooser instead for save and load functions
+
+	3/10/2020 21:30 - 22:00
+KARL MILLER 
+
+Implemented this changelog. Extimated time working before changelog approx 12-14 hours.
+
+Description of classes and their functions
+-programming logic order, not alphabetically
+For a future readMe
+
+	Main.class
+Has public static void main(String args[]). Reads string args and sets public static debug flags in Debug.class. Creates instance of App.java. Launchs app in javafx.
+
+	Debug.class
+Static class for public debug flags.
+
+	App.class
+Creates a customEventHandler, a recordTable, a fileGenerator(eventHandler), and a fileGeneratorUI. Displays fileGeneratorUI with javaFX. Passes eventHandler to UIs to read events. App passes itself to CustomEventHandler so CustomEventHandler can call methods on it to manipulate its' local objects. Creates trianglePanes in seperate window based on fileGeneratorUI input.
+
+	CustomEventHandler.class
+Contained in App.java because of compilation issues. Takes app as an argument. Is passed to UIs. Listens for events (button presses) and simply calls app methods.
+
+	FileGeneratorUI extends GridPane(CustomEventHandler c)
+Uses javafx to display buttons. Currently has load, save, generateRandomTriangle button and text fields for fileName String and Size
+
+	fileGenerator.class
+Writes String data from records into text files. Reads lines from Text files and passes them to RecordTable for processing.
+
+	RecordTable.class
+Creates a starting array of records. Overwrites this table and fills a new one after parsing string data from fileGenerator. Or, overwrites this table and fills a new one with a random number function.
+
+	Record
+Constructed by a RecordTable. Creates a triangle object based on parameters. Parses its' values and returns it as an appropriate string for file writing. Passes Triangle polygons on as necessary. 
+
+	Triangle extends Polygon(double x, double y, char direction, double angle, double adjacent)
+Generates a triangle Polygon after doing the appropriate trigonometry. Orients it based on a char parameter
+
+	TrianglePane extends Pane
+A pane for displaying triangles. Called by app. Uses a loadRecordTable method instead of a constructor for an unknown reason.
+
+	compile.bat
+Compiles the files in the correct order - other orders may result in errors. Reminds programmers that this Application can process some debug arguments. Other ones to remember: -Xlint -verbose
+
+	
+
