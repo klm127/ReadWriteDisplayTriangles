@@ -26,6 +26,13 @@ example: java -cp bin edu.mid.readWriteDisplayTriangles.MainEntry DEBUG4
 
 Sadly, the repository was accidentally overwritten in a way that destroyed the changelog in the most recent commit.
   
-  
+Features:
+  - Generate hundreds or thousands of triangles (but not hundreds of thousands) randomly based on seed value and number
+  - Colorize them equally into 3 starting colors
+  - Move triangles around and bring them forward and backwards with +/-
+  - Have a name for the art you create different from the name of your file
+  - Change individual triangles colors
+  - Use alt+keyboard button or shift+keyboard direction for quicker or more precise movement
+  - save and load data about triangle positions and colors into .txt files
   
 Originally created by Karl Miller for Prof Haley's Java Class in March 2020, Mid-Term project.
