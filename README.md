@@ -23,7 +23,9 @@ example: java -cp bin edu.mid.readWriteDisplayTriangles.MainEntry DEBUG4
   DEBUG5 - Loading Triangles from Pane to RecordTable
   DEBUG6 - Controls for moving Triangles around
   
-  
-Created by Karl Miller for Prof Haley's Java Class in March 2020, MidTerm project.
 
 Sadly, the repository was accidentally overwritten in a way that destroyed the changelog in the most recent commit.
+  
+  
+  
+Originally created by Karl Miller for Prof Haley's Java Class in March 2020, Mid-Term project.
