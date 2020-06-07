@@ -3,12 +3,15 @@ This program parses text File data to create Panes full of triangles.
 
 ----On Windows:
 Run compileAndRun.bat
-
+OR
+execute : gradle run : from the command line 
 
 ----On any other machine:
 --From the root directory
 -Compile with javac ./src/edu/mid/readWriteDisplayTriangles/*.java -d bin
 -Run JVM 1.8 with java -cp bin edu.mid.readWriteDisplayTriangles.MainEntry
+OR
+execute: gradle run : from the command line in the root directory
 
 
 ----There are optional debug modes which may only be activated from the command line
